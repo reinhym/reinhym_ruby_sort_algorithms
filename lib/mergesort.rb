@@ -1,4 +1,4 @@
-require './lib/sort.rb'
+require 'sort'
 
 class MergeSort < Sort
 	
@@ -51,10 +51,10 @@ class MergeSort < Sort
 		self.merge_sort_op(working_array, 0, number_array.length-1)
 		
 		if self.validate(number_array, working_array)
-			puts "SUCCESS: mergesort implementation verified"
+			puts "SUCCESS: merge sort implementation verified"
 			return working_array
 		else
-			puts "FAILURE: mergesort implementation failed verification"
+			puts "FAILURE: merge sort implementation failed verification"
 			return nil
 		end
 	end
