@@ -5,6 +5,7 @@ require 'selectionsort'
 require 'mergesort'
 require 'selectionsort'
 require 'insertionsort'
+require 'quicksort'
 
 class SortTester
 	
@@ -28,8 +29,9 @@ class SortTester
 	
 	def self.begin
 		number_array = RandomNumberArrayGenerator.create(65535/13)
-		print "\nBeginning sort testing suite... [working set = #{number_array.length} elements per sort method]\n\n"
+		print "\nBeginning sort testing suite...\nworking on #{number_array.length} elements per sort method\n\n"
 		control_array = number_array.dup.sort
+		test_sort(number_array, control_array, QuickSort)
 		test_sort(number_array, control_array, MergeSort)
 		test_sort(number_array, control_array, SelectionSort)
 		test_sort(number_array, control_array, InsertionSort)
