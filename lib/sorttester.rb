@@ -12,24 +12,24 @@ class SortTester
 	
 	def self.test_sort(number_array, control_array, sort_method)
 		working_array = number_array.dup
+		puts "Testing #{sort_method.label} implementation..."
 		start_time = Time.now
 		sort_method.sort!(working_array)
 		time_taken = (Time.new-start_time)*1000
 		if is_sorted_correctly(control_array, working_array)
-			puts "SUCCESS: #{sort_method.label} implementation verified successfully, time taken = #{time_taken.to_i}ms"
+			print "SUCCESS: #{sort_method.label} implementation verified successfully, time taken = #{time_taken.to_i}ms\n\n"
 		else
-			puts "FAILURE: #{sort_method.label} implementation has failed verification, time taken = #{time_taken.to_i}ms"
+			print "FAILURE: #{sort_method.label} implementation has failed verification, time taken = #{time_taken.to_i}ms\n\n"
 		end
 	end
 	
 	def self.begin
-		number_array = RandomNumberArrayGenerator.create(65535/15)
+		number_array = RandomNumberArrayGenerator.create(65535/13)
 		print "\nBeginning sort testing suite... [working set = #{number_array.length} elements per sort method]\n\n"
 		control_array = number_array.dup.sort
-		test_sort(number_array, control_array, BubbleSort)
-		test_sort(number_array, control_array, SelectionSort)
 		test_sort(number_array, control_array, MergeSort)
-		print "\n\n"
+		test_sort(number_array, control_array, SelectionSort)
+		test_sort(number_array, control_array, BubbleSort)
 	end
 	
 end
