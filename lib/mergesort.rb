@@ -1,6 +1,9 @@
-require 'sort'
-
-class MergeSort < Sort
+class MergeSort
+	
+	@@label = "merge sort"
+	def self.label
+		return @@label
+	end
 	
 	def self.merge_sort_op(number_array, first_index, last_index)
 		
@@ -48,10 +51,4 @@ class MergeSort < Sort
 		merge_sort_op(number_array, 0, number_array.length-1)
 	end
 	
-	def self.sort_and_verify(number_array)
-		start_time = Time.new
-		working_array = number_array.dup
-		self.sort!(working_array)
-		return self.validate(number_array, working_array, "merge sort", start_time)
-	end
 end

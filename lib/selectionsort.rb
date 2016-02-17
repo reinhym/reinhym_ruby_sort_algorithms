@@ -1,6 +1,9 @@
-require 'sort'
-
-class SelectionSort < Sort
+class SelectionSort
+	
+	@@label = "selection sort"
+	def self.label
+		return @@label
+	end
 	
 	def self.sort!(number_array)
 		
@@ -18,13 +21,6 @@ class SelectionSort < Sort
 			end
 		end
 		
-	end
-	
-	def self.sort_and_verify(number_array)
-		start_time = Time.new
-		working_array = number_array.dup
-		self.sort!(working_array)
-		return self.validate(number_array, working_array, "selection sort", start_time)
 	end
 	
 end
