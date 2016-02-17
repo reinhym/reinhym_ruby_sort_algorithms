@@ -1,7 +1,10 @@
 require 'random_number_array_generator'
+
 require 'bubblesort'
 require 'selectionsort'
 require 'mergesort'
+require 'selectionsort'
+require 'insertionsort'
 
 class SortTester
 	
@@ -29,6 +32,7 @@ class SortTester
 		control_array = number_array.dup.sort
 		test_sort(number_array, control_array, MergeSort)
 		test_sort(number_array, control_array, SelectionSort)
+		test_sort(number_array, control_array, InsertionSort)
 		test_sort(number_array, control_array, BubbleSort)
 	end
 	
