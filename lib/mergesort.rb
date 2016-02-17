@@ -45,17 +45,13 @@ class MergeSort < Sort
 	end
 	
 	def self.sort(number_array)
+		merge_sort_op(number_array, 0, number_array.length-1)
+	end
 	
+	def self.sort_and_verify(number_array)
+		start_time = Time.new
 		working_array = number_array.dup
-		
-		self.merge_sort_op(working_array, 0, number_array.length-1)
-		
-		if self.validate(number_array, working_array)
-			puts "SUCCESS: merge sort implementation verified"
-			return working_array
-		else
-			puts "FAILURE: merge sort implementation failed verification"
-			return nil
-		end
+		self.sort(working_array)
+		return self.validate(number_array, working_array, "merge sort", start_time)
 	end
 end

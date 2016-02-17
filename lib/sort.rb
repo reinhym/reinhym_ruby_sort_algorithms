@@ -1,10 +1,25 @@
 class Sort
+	
 	def self.sort(number_array)
 	end
 	
-	def self.validate(original_array, sorted_array)
+	def self.validate(original_array, sorted_array, sort_name, start_time)
 		control_array = original_array.dup.sort
-		sorted_array.each_index { |x| return false if sorted_array[x] != control_array[x] }
-		return true
+		verified = true
+		sorted_array.each_index do |x|
+			if sorted_array[x] != control_array[x]
+				verified = false
+			end
+			break unless verified
+		end
+		
+		if verified
+			puts "SUCCESS: #{sort_name} implementation verified, time taken = #{(Time.new-start_time)*1000.0}ms"
+			return sorted_array
+		else
+			puts "FAILURE: #{sort_name} implementation failed verification"
+			return nil
+		end
 	end
+	
 end
