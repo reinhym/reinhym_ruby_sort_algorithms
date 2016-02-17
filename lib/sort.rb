@@ -1,8 +1,5 @@
 class Sort
 	
-	def self.sort(number_array)
-	end
-	
 	def self.validate(original_array, sorted_array, sort_name, start_time)
 		control_array = original_array.dup.sort
 		verified = true
@@ -14,7 +11,7 @@ class Sort
 		end
 		
 		if verified
-			puts "SUCCESS: #{sort_name} implementation verified, time taken = #{(Time.new-start_time)*1000.0}ms"
+			puts "SUCCESS: #{sort_name} implementation verified, time elapsed = #{((Time.new-start_time)*1000.0).to_i}ms"
 			return sorted_array
 		else
 			puts "FAILURE: #{sort_name} implementation failed verification"

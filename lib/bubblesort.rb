@@ -2,7 +2,7 @@ require 'sort'
 
 class BubbleSort < Sort
 	
-	def self.sort(number_array)
+	def self.sort!(number_array)
 		
 		shifted = false
 		loop do
@@ -23,7 +23,7 @@ class BubbleSort < Sort
 	def self.sort_and_verify(number_array)
 		start_time = Time.new
 		working_array = number_array.dup
-		self.sort(working_array)
+		self.sort!(working_array)
 		return self.validate(number_array, working_array, "bubble sort", start_time)
 	end
 	

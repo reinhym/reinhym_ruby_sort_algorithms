@@ -44,14 +44,14 @@ class MergeSort < Sort
 		
 	end
 	
-	def self.sort(number_array)
+	def self.sort!(number_array)
 		merge_sort_op(number_array, 0, number_array.length-1)
 	end
 	
 	def self.sort_and_verify(number_array)
 		start_time = Time.new
 		working_array = number_array.dup
-		self.sort(working_array)
+		self.sort!(working_array)
 		return self.validate(number_array, working_array, "merge sort", start_time)
 	end
 end
